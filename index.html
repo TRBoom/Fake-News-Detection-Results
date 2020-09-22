@@ -11,53 +11,291 @@
 <body>
     <h1>Fake News Detection Results</h1>
     <br>
-    <h2>Classifier: Bag of Word Accuracy</h2>
-    <ul>
-    <li>Naive bayes: 0.6072128577028616</li>
-    <li>Logistic regression: 0.6013328106624853</li>
-    <li>Linear SVM classfier: 0.5723245785966288</li>
-    <li>SVM Stochastic Gradient Descent: 0.6158369266954136</li>
-    <li>Random Forest: 0.6287730301842415</li>
-    </ul>
-    <h2>Confusion Matrix</h1>
-	
-        Naive bayes
-Total statements classified: 10240
-Score: 0.66961153965076
-score length 5
-Confusion matrix:
-<table><tr><td>2118 2370</td></tr>
- <tr><td>1664 4088</td></tr></table>
-Logistic regression
-Total statements classified: 10240
-Score: 0.6466692934443682
-score length 5
-Confusion matrix:
-<table><tr><td>2254</td> <td>2234</td></tr>
- <tr><td>1936</td> <td>3816</td></tr></table>
-Linear SVM classfier
-Total statements classified: 10240
-Score: 0.6104687487924283
-score length 5
-Confusion matrix:
-<table><tr><td>2260</td> <td>2228</td></tr>
- <tr><td>2246</td> <td>3506</td></tr></table>
-SVM Stochastic Gradient Descent
-Total statements classified: 10240
-Score: 0.6615137255214826
-score length 5
-Confusion matrix:
-<table><tr><td>2189</td> <td>2299</td></tr>
- <tr><td>1772</td> <td>3980</td></tr></table>
-Random Forest
-Total statements classified: 10240
-Score: 0.7011787588829883
-score length 5
-Confusion matrix:
-<table><tr><td>1812</td> <td>2676</td></tr>
- <tr><td>1202</td> <td>4550</td></tr></table>
+	<h2>Data</h2>
+	<code>
+<p>	(0, 9676)	1
+<p>  (0, 10988)	1
+<p>  (0, 1044)	1
+<p>  (0, 6639)	1
+<p>  (0, 8376)	1
+<p>  (0, 5115)	1
+<p>  (0, 10709)	1
+<p>  (0, 11036)	1
+  <p>(0, 11296)	1
+  <p>(0, 615)	1
+  <p>(0, 7728)	1
+  <p>(0, 3278)	1
+  <p>(1, 10988)	1
+  <p>(1, 11934)	2
+  <p>(1, 3434)	1
+  <p>(1, 3185)	1
+  <p>(1, 7672)	1
+  <p>(1, 2475)	1
+  <p>(1, 10425)	1
+  <p>(1, 6052)	1
+  <p>(1, 10426)	2
+  <p>(1, 7418)	1
+  <p>(1, 4860)	1
+  <p>(1, 11138)	1
+  <p>(1, 7674)	1
+  <p>:	:
+  <p>(10239, 10988)	1
+  <p>(10239, 7672)	2
+  <p>(10239, 11110)	2
+  <p>(10239, 5267)	1
+  <p>(10239, 7828)	1
+  <p>(10239, 7824)	1
+  <p>(10239, 1159)	1
+  <p>(10239, 12151)	2
+  <p>(10239, 6327)	1
+  <p>(10239, 6603)	1
+  <p>(10239, 11013)	1
+  <p>(10239, 11004)	1
+  <p>(10239, 3309)	1
+  <p>(10239, 12158)	1
+  <p>(10239, 11660)	2
+  <p>(10239, 799)	1
+  <p>(10239, 2568)	1
+  <p>(10239, 11622)	1
+  <p>(10239, 2549)	1
+  <p>(10239, 10660)	1
+  <p>(10239, 8996)	1
+  <p>(10239, 10918)	1
+  <p>(10239, 3989)	1
+  <p>(10239, 10594)	1
+  <p>(10239, 6853)	1
+<p>0        Says the Annies List political group supports ...
+<p>1        When did the decline of coal start? It started...
+<p>2        Hillary Clinton agrees with John McCain "by vo...
+<p>3        Health care reform legislation is likely to ma...
+<p>4        The economic turnaround started at the end of ...
+<p>                               ...                        
+<p>10235    There are a larger number of shark attacks in ...
+<p>10236    Democrats have now become the party of the [At...
+<p>10237    Says an alternative to Social Security that op...
+<p>10238    On lifting the U.S. Cuban embargo and allowing...
+<p>10239    The Department of Veterans Affairs has a manua...
+<p>Name: Statement, Length: 10240, dtype: object
 
-    
+<br><img src="Data breakdown.png">
+
+	</code>
+    <h2>Classifier: Bag of Word </h2>	
+	<h3>Classifier Accuracy</h3>
+	    <code>
+<p>	building classifier using naive bayes:
+0.6072128577028616
+<p>building classifier using logistic regression:
+0.6013328106624853
+<p>building Linear SVM classfier:
+0.5723245785966288
+<p>using SVM Stochastic Gradient Descent on hinge loss:
+0.6158369266954136
+<p>random forest:
+0.6287730301842415
+
+	</code>
+    <h3>Confusion Matrix</h1>
+    <code>
+<p>	naive bayes
+<p>	Total statements classified: 10240
+<p>Score: 0.66961153965076
+<p>score length 5
+<p>Confusion matrix:
+<p>[[2118 2370]
+ <p>[1664 4088]]
+ <p>logistic regression
+<p>Total statements classified: 10240
+<p>Score: 0.6466692934443682
+<p>score length 5
+<p>Confusion matrix:
+<p>[[2254 2234]
+ <p>[1936 3816]]
+ <p>Linear SVM classfier
+<p>Total statements classified: 10240
+<p>Score: 0.6104687487924283
+<p>score length 5
+<p>Confusion matrix:
+<p>[[2260 2228]
+ <p>[2246 3506]]
+ <p>SVM Stochastic Gradient Descent
+<p>Total statements classified: 10240
+<p>Score: 0.6615137255214826
+<p>score length 5
+<p>Confusion matrix:
+<p>[[2189 2299]
+ <p>[1772 3980]]
+ <p>Random Forest
+<p>Total statements classified: 10240
+<p>Score: 0.7011787588829883
+<p>score length 5
+<p>Confusion matrix:
+<p>[[1812 2676]
+ <p>[1202 4550]]
+
+	</code>
+    <br>
+    <h2>Classifier: NGrams </h2>
+	<h3>Classifier Accuracy</h3>
+	<code>
+<p>	naive-bayes classifier:
+0.5938847510780086
+<p>logistic regression classifier:
+0.6193649549196394
+<p>linear SVM classifier:
+0.6170129361034888
+<p>sgd classifier:
+0.5417483339866719
+<p>random forest classifier:
+0.5997647981183849
+	</code>
+   
+    <h3>Confusion Matrix</h3>
+    <code>
+<p>	naive-bayes classifier
+<p>	Total statements classified: 10240
+<p>Score: 0.7224053159841455
+<p>score length 5
+<p>Confusion matrix:
+<p>[[ 758 3730]
+ <p>[ 390 5362]]
+ <p>logistic regression classifier
+<p>Total statements classified: 10240
+<p>Score: 0.7044355553757985
+<p>score length 5
+<p>Confusion matrix:
+<p>[[1580 2908]
+ <p>[1043 4709]]
+ <p>linear SVM classifier
+<p>Total statements classified: 10240
+<p>Score: 0.6790920142902143
+<p>score length 5
+<p>Confusion matrix:
+<p>[[2016 2472]
+ <p>[1524 4228]]
+ <p>sgd classifier
+<p>Total statements classified: 10240
+<p>Score: 0.7190643331130575
+<p>score length 5
+<p>Confusion matrix:
+<p>[[   5 4483]
+ <p>[   6 5746]]
+ <p>random forest classifier
+<p>Total statements classified: 10240
+<p>Score: 0.6581064110443118
+<p>score length 5
+<p>Confusion matrix:
+<p>[[2021 2467]
+ <p>[1721 4031]]
+	</code>
+
+
+
+
+<h2></h2>
+
+<code>
+<p>              precision    recall  f1-score   support
+<p>
+<p>       False       0.72      0.19      0.30      1169
+<p>        True       0.58      0.94      0.71      1382
+<p>
+<p>    accuracy                           0.59      2551
+<p>   macro avg       0.65      0.56      0.51      2551
+<p>weighted avg       0.64      0.59      0.52      2551
+<p>
+<p>              precision    recall  f1-score   support
+<p>
+<p>       False       0.64      0.39      0.49      1169
+<p>        True       0.61      0.81      0.70      1382
+<p>
+<p>    accuracy                           0.62      2551
+<p>   macro avg       0.62      0.60      0.59      2551
+<p>weighted avg       0.62      0.62      0.60      2551
+<p>
+<p>              precision    recall  f1-score   support
+<p>
+<p>       False       0.61      0.47      0.53      1169
+<p>        True       0.62      0.74      0.68      1382
+<p>
+<p>    accuracy                           0.62      2551
+<p>   macro avg       0.61      0.61      0.60      2551
+<p>weighted avg       0.62      0.62      0.61      2551
+<p>
+<p>              precision    recall  f1-score   support
+<p>
+<p>       False       0.00      0.00      0.00      1169
+<p>        True       0.54      1.00      0.70      1382
+<p>
+<p>    accuracy                           0.54      2551
+<p>   macro avg       0.27      0.50      0.35      2551
+<p>weighted avg       0.29      0.54      0.38      2551
+<p>
+<p>              precision    recall  f1-score   support
+<p>
+<p>       False       0.58      0.47      0.52      1169
+<p>        True       0.61      0.71      0.66      1382
+<p>
+<p>    accuracy                           0.60      2551
+<p>   macro avg       0.60      0.59      0.59      2551
+<p>weighted avg       0.60      0.60      0.59      2551
+</code>	
+
+
+<h2>Selected best from code</h2>
+
+
+<code>
+<p>              precision    recall  f1-score   support
+<p>
+<p>       False       0.50      0.00      0.00      1169
+<p>        True       0.54      1.00      0.70      1382
+<p>
+<p>    accuracy                           0.54      2551
+<p>   macro avg       0.52      0.50      0.35      2551
+<p>weighted avg       0.52      0.54      0.38      2551
+<p>
+<p>              precision    recall  f1-score   support
+<p>
+<p>       False       0.64      0.38      0.48      1169
+<p>        True       0.61      0.82      0.70      1382
+<p>
+<p>    accuracy                           0.62      2551
+<p>   macro avg       0.62      0.60      0.59      2551
+<p>weighted avg       0.62      0.62      0.60      2551
+<p>
+</code>
+
+
+<h2>Plotted Learning Curve</h2>
+<h3>Logistic Regression Classifier</h3>
+<br><img src="LogisticRegression Classifier.png">
+<code>
+<p>Informative Features
+<p>['3.3274        percent    -2.0938      obamacare', '1.8485        million    -1.8249          obama', '1.7409        average    -1.6505           says', '1.6573            day    -1.5980      wisconsin', '1.6514        georgia    -1.4068            rep', '1.6174           debt    -1.3510     government', '1.6029      countries    -1.2283           care', '1.5744          times    -1.2013           plan', '1.4221        highest    -1.1898      president', '1.3850        country    -1.1784   scott walker', '1.3490           half    -1.1635         walker', '1.3286            000    -1.0761         obamas', '1.2220       american    -1.0428          scott', '1.2136            cut    -1.0123           away', '1.2060         months    -0.9792        clinton', '1.1675         states    -0.9715         barack', '1.1637      americans    -0.9658       medicare', '1.0659           rate    -0.9373       stimulus', '1.0616           year    -0.9210          white', '1.0163             60    -0.9001          going', '0.9677           weve    -0.8912        illegal', '0.9563         nearly    -0.8545       care law', '0.9467             10    -0.8433       security', '0.9448       spending    -0.8200         social', '0.9354        college    -0.8193          voted', '0.9205         lowest    -0.8116       increase', '0.9154           ohio    -0.8114           know', '0.8974          terms    -0.8109health care law', '0.8927         cities    -0.8079          group', '0.8724          lower    -0.8040         muslim', '0.8526        poverty    -0.7985   barack obama', '0.8448       trillion    -0.7982      democrats', '0.8389         dollar    -0.7874says barack obama', '0.8356        decades    -0.7829    health care', '0.8198         romney    -0.7332           stop', '0.8091             40    -0.7319       benghazi', '0.8072        workers    -0.7257        hillary', '0.8020        members    -0.7198       supports', '0.7909          worth    -0.7189      gov scott', '0.7899      education    -0.7163    raise taxes', '0.7897          today    -0.7157       deciding', '0.7656             50    -0.7097          china', '0.7655          worst    -0.7043            tom', '0.7632         mccain    -0.6921 says president', '0.7540        torture    -0.6901      dont know', '0.7512says donald trump    -0.6852   middle class', '0.7458        elected    -0.6819       says rep', '0.7385        florida    -0.6812    500 billion', '0.7318        funding    -0.6802       illegals', '0.7250           does    -0.6740          wants']
+</code>
+<h3>Naive-bayes Classifier</h3>
+<br><img src="Naive-bayes Classifier.png">
+<code>
+<p>Informative Features
+<p>['-8.3673           says    -12.4938        00 2014', '-8.4799        percent    -12.493800 2014 provisions', '-8.9058          state    -12.493800 2014 provisions incorporated', '-8.9942            000    -12.4938   000 000 send', '-9.0719          years    -12.4938000 000 send community', '-9.0913           year    -12.4938000 000 support', '-9.1003            tax    -12.4938000 000 support supreme', '-9.1008         states    -12.4938         000 10', '-9.1342        million    -12.4938     000 10 000', '-9.2124         people    -12.4938000 10 000 refugees', '-9.2204          obama    -12.4938     000 20 000', '-9.2820           jobs    -12.4938000 20 000 infrastructural', '-9.3021         health    -12.4938000 20 000 jobs', '-9.3725      president    -12.4938         000 25', '-9.3907          texas    -12.4938     000 25 000', '-9.3952        country    -12.4938000 25 000 federal', '-9.4194          taxes    -12.4938         000 38', '-9.4331            new    -12.4938     000 38 000', '-9.4862        billion    -12.4938000 38 000 earned', '-9.5115           care    -12.4938  000 40 000 50', '-9.5466         united    -12.4938        000 400', '-9.5504           rate    -12.4938    000 400 000', '-9.5529  united states    -12.4938000 400 000 military', '-9.5836        federal    -12.4938000 50 000 year', '-9.6116      americans    -12.4938        000 500', '-9.6434           said    -12.4938 000 500 severe', '-9.6522            cut    -12.4938000 500 severe vaccine', '-9.6621         budget    -12.4938         000 97', '-9.6718             10    -12.4938     000 97 000', '-9.6783          voted    -12.4938000 97 000 just', '-9.6873    health care    -12.4938    000 african', '-9.6943            pay    -12.4938000 african americans', '-9.6970           time    -12.4938000 african americans andwas', '-9.7036           debt    -12.4938000 american jobs', '-9.7360       american    -12.4938000 american jobs including', '-9.7391        average    -12.4938000 americans simply', '-9.7663        florida    -12.4938000 americans simply given', '-9.7801     government    -12.4938     000 anchor', '-9.7932            law    -12.4938000 anchor babies', '-9.8016       spending    -12.4938000 anchor babies born', '-9.8063     republican    -12.4938    000 applied', '-9.8246        highest    -12.4938000 applied equally', '-9.8427          money    -12.4938000 applied equally granted', '-9.8442         barack    -12.4938     000 babies', '-9.8617          times    -12.4938000 babies born', '-9.8748           just    -12.4938000 babies born deformed', '-9.8761         school    -12.4938000 barrels day', '-9.8818          world    -12.4938000 barrels day able', '-9.8855            day    -12.4938000 barrels oil day', '-9.9084         senate    -12.4938       000 beef']
+</code>
+<h3>SVM Classifier</h3>
+<br><img src="SVM Classifier.png">
+<code>
+<p>Informative Features
+<p>['2.0315        percent    -1.5708      obamacare', '1.8048      countries    -1.4197      wisconsin', '1.6195            day    -1.3027          obama', '1.6157        georgia    -1.2967            rep', '1.4357          times    -1.1417     government', '1.4045        average    -1.0632           away', '1.3988        million    -1.0549       illegals', '1.3347           debt    -1.0137           says', '1.2845         months    -0.9930   scott walker', '1.1959           half    -0.9560          group', '1.1058       american    -0.9553         obamas', '1.1058          terms    -0.9542           plan', '1.0753            cut    -0.9471        illegal', '1.0721            000    -0.9384nuclear weapons', '1.0521         cities    -0.9354          white', '1.0434          lower    -0.9232       released', '1.0430        decades    -0.9213         walker', '1.0325             60    -0.9170         muslim', '1.0281        country    -0.9116           face', '1.0233   percent time    -0.9049    seven years', '1.0137          worth    -0.8953          china', '1.0122        highest    -0.8939         gotten', '1.0055       shutdown    -0.8924           stop', '0.9976     says scott    -0.8705        cabinet', '0.9718        members    -0.8687      dont know', '0.9539      lobbyists    -0.8608           seat', '0.9473        opposed    -0.8582       benghazi', '0.9462   corporations    -0.8475          fight', '0.9258           ohio    -0.8411      president', '0.9209       georgias    -0.8410           team', '0.9064            won    -0.8359           real', '0.8997         dollar    -0.8331            tom', '0.8899       expanded    -0.8326            aid', '0.8881        elected    -0.8304           care', '0.8802           weve    -0.8291     christians', '0.8702      committee    -0.8131       deciding', '0.8625             14    -0.8121      virginias', '0.8523        workers    -0.8027      jobs lost', '0.8495          share    -0.8019    500 billion', '0.8421       spending    -0.7958   end medicare', '0.8398      accidents    -0.7952          taxed', '0.8363      statewide    -0.7938        selling', '0.8252             24    -0.7925        clinton', '0.8226         called    -0.7890       war iraq', '0.8196national average    -0.7867    raise taxes', '0.8193           does    -0.7832          price', '0.8175        torture    -0.7804  said drilling', '0.8158         nearly    -0.7785          lanes', '0.8124         lowest    -0.7756           free', '0.8116        college    -0.7749       bankrupt']
+</code>
+<h3>SGD Classifier</h3>
+<br><img src="SGD Classifier.png">
+<code>
+<p>Informative Features
+<p>['0.4079        percent    -0.6296          obama', '0.2936        million    -0.6214      obamacare', '0.2749            day    -0.5692         barack', '0.2739      countries    -0.4899   barack obama', '0.2693          times    -0.4455           care', '0.2671        georgia    -0.4326   scott walker', '0.2625            000    -0.4216         walker', '0.2402           debt    -0.4125      president', '0.2277        average    -0.3951            rep', '0.2269       american    -0.3927           says', '0.2213         months    -0.3663      wisconsin', '0.2184           half    -0.3628          scott', '0.2097        country    -0.3488    health care', '0.2091            cut    -0.3472       care law', '0.1864         states    -0.3377     government', '0.1824           ohio    -0.3330health care law', '0.1776          state    -0.3300 says president', '0.1762         cities    -0.3201         obamas', '0.1755     republican    -0.3192           plan', '0.1720         called    -0.3188        clinton', '0.1693       spending    -0.3138       medicare', '0.1689          terms    -0.3092says barack obama', '0.1662          lower    -0.3078       security', '0.1658         romney    -0.3058      gov scott', '0.1655         dollar    -0.2996         social', '0.1645      lobbyists    -0.2855    says barack', '0.1627           weve    -0.2833gov scott walker', '0.1621        highest    -0.2793        hillary', '0.1620       trillion    -0.2703social security', '0.1616        members    -0.2596president barack', '0.1610         mccain    -0.2502           away', '0.1593says donald trump    -0.2445       stimulus', '0.1593           does    -0.2417   tax increase', '0.1559        program    -0.2366          voted', '0.1550      americans    -0.2245          going', '0.1545             60    -0.2207          white', '0.1537   percent time    -0.2169       supports', '0.1522            won    -0.2162tax increase history', '0.1517   corporations    -0.2160says president barack', '0.1515        workers    -0.2158hillary clinton', '0.1510        funding    -0.2140          wants', '0.1508        college    -0.2135         muslim', '0.1506           year    -0.2130       deciding', '0.1480        florida    -0.2129       says rep', '0.1478       shutdown    -0.2116       increase', '0.1471           bush    -0.2061increase history', '0.1459       actually    -0.1983    500 billion', '0.1445        poverty    -0.1976president barack obama', '0.1430      education    -0.1964    raise taxes', '0.1429      committee    -0.1958         health']
+</code>
+<h3>RandomForest Classifier !!!Still Running!!!</h3>
+<code>
+
+</code>
 </body>
 
 </html>
